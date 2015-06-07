@@ -74,3 +74,12 @@
 
 (defn bfs [graph a b]
   (first (filter #(= (last %) b) (breadth-first graph a))))
+
+(defn density [graph]
+  (let [n (count (get-vertices graph))
+        e (count (get-edges graph))]
+    (/ (* 2.0 e) (* n (dec n)))))
+
+(defn avg-degree [graph]
+  (/ (* 2.0 (count (get-edges graph)))
+     (count (get-vertices graph))))
